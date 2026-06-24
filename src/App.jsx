@@ -1,14 +1,29 @@
 import { useState } from 'react'
 import { recetas } from './data/recetas'
 import ListaRecetas from './components/ListaRecetas'
+import FiltroCategoria from './components/FiltroCategoria'
 import './App.css'
 
-function App() {
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Entrada')
+// Función para validar y normalizar entrada del usuario
+const normalizarBusqueda = (texto) => {
+  const MAX_LARGO = 50
+  return texto.trim().slice(0, MAX_LARGO)
+}
 
-  const recetasFiltradas = recetas.filter(
-    (receta) => receta.categoria === categoriaSeleccionada
-  )
+function App() {
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todas')
+  const [busqueda, setBusqueda] = useState('')
+
+  const recetasFiltradas = recetas.filter((receta) => {
+    const coincideCategoria = categoriaSeleccionada === 'Todas' || receta.categoria === categoriaSeleccionada
+    const coincideBusqueda = receta.nombre.toLowerCase().includes(busqueda.toLowerCase())
+    return coincideCategoria && coincideBusqueda
+  })
+
+  const handleBusquedaChange = (e) => {
+    const textoSanitizado = normalizarBusqueda(e.target.value)
+    setBusqueda(textoSanitizado)
+  }
 
   return (
     <div className="app-container">
@@ -17,22 +32,30 @@ function App() {
         <p>Explora nuestras deliciosas recetas de cocina</p>
       </header>
 
-      <nav className="categorias-filtro">
-        {['Entrada', 'Fondo', 'Postre'].map((categoria) => (
-          <button
-            key={categoria}
-            className={`btn-categoria ${categoriaSeleccionada === categoria ? 'activo' : ''}`}
-            onClick={() => setCategoriaSeleccionada(categoria)}
-          >
-            {categoria}
-          </button>
-        ))}
-      </nav>
+      <div className="busqueda-contenedor">
+        <input
+          type="text"
+          placeholder="🔍 Buscar por nombre de receta..."
+          value={busqueda}
+          onChange={handleBusquedaChange}
+          className="campo-busqueda"
+          maxLength="50"
+        />
+      </div>
+
+      <FiltroCategoria 
+        categoriaSeleccionada={categoriaSeleccionada}
+        onChange={setCategoriaSeleccionada}
+      />
 
       <main className="contenido-principal">
-        <h2>{categoriaSeleccionada}</h2>
+        <h2>{categoriaSeleccionada === 'Todas' ? 'Todas las Recetas' : categoriaSeleccionada}</h2>
         <p className="contador-recetas">{recetasFiltradas.length} recetas encontradas</p>
-        <ListaRecetas recetas={recetasFiltradas} />
+        {recetasFiltradas.length === 0 ? (
+          <p className="sin-resultados">No hay recetas que coincidan</p>
+        ) : (
+          <ListaRecetas recetas={recetasFiltradas} />
+        )}
       </main>
     </div>
   )

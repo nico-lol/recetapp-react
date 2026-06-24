@@ -1,4 +1,5 @@
 import RecetaCard from './RecetaCard';
+import './ListaRecetas.css';
 
 function ListaRecetas({ recetas }) {
   return (
