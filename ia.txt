@@ -1,0 +1,27 @@
+Parte A
+Prompt: Analiza la estructura del archivo recetas.js e identifica qué elementos específicos de React como componentes reutilizables, props para pasar datos, estado con useState para controlar cambios dinámicos, y renderizado condicional resuelven el problema de mostrar un recetario digital interactivo en una tablet, explicando en una oración por qué cada elemento es el adecuado para esta solución.
+Nivel de utilidad: Fue bastante util a la hora de responder
+Que modificaste: Simplifique algunas de las respuestas que dio
+
+Parte B
+Etapa 1
+No usé IA en esta etapa.
+
+Etapa 2
+Prompt: Crea tres componentes React reutilizables: RecetaCard que reciba props (nombre, origen, porciones, categoria, descripcion, ingredientes, esVegetariana) y muestre la información visual y ordenada con estilos diferenciados por categoría. ListaRecetas que reciba el array de recetas por props, use .map() para renderizar RecetaCard por cada receta y FiltroCategoria que renderice botones para filtrar por "Todas", "Entrada", "Fondo", "Postre" recibiendo categoriaSeleccionada y onChange como props
+Nivel de utilidad: Muy util
+Que modificaste: El estilo para que tuviera colores y emojis
+
+Etapa 3
+No usé IA en esta etapa.
+
+
+Etapa 4
+Prompt: Crea una función que filtre el array aplicando ambas condiciones (categoría Y búsqueda), usa renderizado condicional para mostrar: "No hay recetas que coincidan", si no hay resultados, y muestra un contador dinámico de recetas encontradas más otro contador para recetas vegetarianas
+Nivel de utilidad: Medianamente util
+Que modificaste: Me ayudo a modificar el codigo ya que cuando trate de hacerlo manualmente, la consola mostraba errores
+
+Etapa 5
+Prompt: Diseña los estilos CSS para RecetaCard con bordes  de color por categoría, sombras y efectos, agrégale un borde superior verde y sombra verde para las recetas vegetarianas para destacarlas, estiliza FiltroCategoria con botones que indiquen estado activo o inactivo y transiciones, y en App.jsx un campo de búsqueda
+Nivel de utilidad: Muy util
+Que modificaste: Muy poco, el diseño que entrego la IA se ve muy bien visualmente
