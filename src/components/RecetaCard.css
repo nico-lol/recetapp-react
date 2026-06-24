@@ -1,0 +1,130 @@
+.receta-card {
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-left: 5px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.receta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos por categoría */
+.receta-card.categoria-entrada {
+  border-left-color: #ff6b6b;
+  background: linear-gradient(135deg, #ffe8e8 0%, #fafafa 100%);
+}
+
+.receta-card.categoria-fondo {
+  border-left-color: #4ecdc4;
+  background: linear-gradient(135deg, #e8f8f6 0%, #fafafa 100%);
+}
+
+.receta-card.categoria-postre {
+  border-left-color: #ffc93c;
+  background: linear-gradient(135deg, #fff5e1 0%, #fafafa 100%);
+}
+
+.receta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.receta-titulo {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.badge-vegetariana {
+  background-color: #27ae60;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.receta-info {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555;
+}
+
+.categoria-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.categoria-entrada .categoria-badge {
+  background-color: #ffcccc;
+  color: #c92a2a;
+}
+
+.categoria-fondo .categoria-badge {
+  background-color: #c3fae8;
+  color: #0b6e4f;
+}
+
+.categoria-postre .categoria-badge {
+  background-color: #ffe066;
+  color: #b8860b;
+}
+
+.receta-descripcion {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 12px 0;
+  font-style: italic;
+}
+
+.receta-ingredientes {
+  margin-top: 12px;
+}
+
+.receta-ingredientes h4 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.ingredientes-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ingrediente-tag {
+  background-color: rgba(0, 0, 0, 0.06);
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  color: #444;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ingrediente-tag:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
