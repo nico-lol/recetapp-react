@@ -29,6 +29,16 @@
   background: linear-gradient(135deg, #fff5e1 0%, #fafafa 100%);
 }
 
+/* Estilos para recetas vegetarianas */
+.receta-card.es-vegetariana {
+  border-top: 3px solid #27ae60;
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.15);
+}
+
+.receta-card.es-vegetariana:hover {
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.25);
+}
+
 .receta-header {
   display: flex;
   justify-content: space-between;

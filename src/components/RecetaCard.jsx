@@ -2,9 +2,10 @@ import './RecetaCard.css';
 
 function RecetaCard({ nombre, origen, porciones, categoria, descripcion, ingredientes, esVegetariana }) {
   const categoriaClass = `categoria-${categoria.toLowerCase()}`;
+  const vegetarianaClass = esVegetariana ? 'es-vegetariana' : '';
 
   return (
-    <div className={`receta-card ${categoriaClass}`}>
+    <div className={`receta-card ${categoriaClass} ${vegetarianaClass}`}>
       <div className="receta-header">
         <h3 className="receta-titulo">{nombre}</h3>
         {esVegetariana && <span className="badge-vegetariana">🥗 Vegetariana</span>}

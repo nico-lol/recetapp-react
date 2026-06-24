@@ -25,6 +25,8 @@ function App() {
     setBusqueda(textoSanitizado)
   }
 
+  const recetasVegetarianas = recetasFiltradas.filter((receta) => receta.esVegetariana).length
+
   return (
     <div className="app-container">
       <header className="app-header">
@@ -50,7 +52,12 @@ function App() {
 
       <main className="contenido-principal">
         <h2>{categoriaSeleccionada === 'Todas' ? 'Todas las Recetas' : categoriaSeleccionada}</h2>
-        <p className="contador-recetas">{recetasFiltradas.length} recetas encontradas</p>
+        <div className="estadisticas">
+          <p className="contador-recetas">{recetasFiltradas.length} recetas encontradas</p>
+          {recetasVegetarianas > 0 && (
+            <p className="contador-vegetarianas">🥗 {recetasVegetarianas} vegetariana{recetasVegetarianas !== 1 ? 's' : ''}</p>
+          )}
+        </div>
         {recetasFiltradas.length === 0 ? (
           <p className="sin-resultados">No hay recetas que coincidan</p>
         ) : (
